@@ -239,6 +239,11 @@ static void option_instat_callback(struct urb *urb);
 #define BANDRICH_PRODUCT_1011			0x1011
 #define BANDRICH_PRODUCT_1012			0x1012
 
+/* Netprisma */
+#define NETPRISMA_VENDOR_ID				0x3731
+/* Netprisma LUH33-WWD */
+#define NETPRISMA_PRODUCT_LUH33			0x0103
+
 #define QUALCOMM_VENDOR_ID			0x05C6
 /* These Quectel products use Qualcomm's vendor ID */
 #define QUECTEL_PRODUCT_UC20			0x9003
@@ -1171,6 +1176,12 @@ static const struct usb_device_id option_ids[] = {
 	  .driver_info = RSVD(4) },
 	{ USB_DEVICE(UBLOX_VENDOR_ID, 0x1343),		/* u-blox LARA-L6 (ECM) */
 	  .driver_info = RSVD(4) },
+
+	/* Netprisma LUH33 product */
+	{ USB_DEVICE_AND_INTERFACE_INFO(NETPRISMA_VENDOR_ID, NETPRISMA_PRODUCT_LUH33, 0xff, 0xff, 0xff),
+	  .driver_info = NUMEP2 },
+	{ USB_DEVICE_AND_INTERFACE_INFO(NETPRISMA_VENDOR_ID, NETPRISMA_PRODUCT_LUH33, 0xff, 0, 0) },
+
 	/* Quectel products using Quectel vendor ID */
 	{ USB_DEVICE_AND_INTERFACE_INFO(QUECTEL_VENDOR_ID, QUECTEL_PRODUCT_EC21, 0xff, 0xff, 0xff),
 	  .driver_info = NUMEP2 },
